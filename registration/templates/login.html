@@ -12,7 +12,7 @@
 
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 
@@ -105,28 +105,40 @@
 
   <form action="" class="form" method="post">
     {% csrf_token %}
-    
+
     <h3>Login Here</h3>
-   
+
     <label for="username">Username</label>
-    <input type="text"  placeholder="Enter Username" id="username" name="username">
+    <input type="text" placeholder="Enter Username" id="username" name="username">
 
     <label for="password">Password</label>
-    <input type="password"  placeholder="Password" id="password" name="pass">
+    <input type="password" placeholder="Password" id="password" name="pass">
 
     {% if messages %}
     {% for message in messages %}
-    <div class="text-danger" style="margin-bottom: -1rem;">
-      {{ message }}
-    </div>
+        {% if 'success' in message.tags %}
+            <div class="text-success" style="margin-bottom: -1rem;">
+                {{ message }}
+            </div>
+        {% elif 'error' in message.tags %}
+            <div class="text-danger" style="margin-bottom: -1rem;">
+                {{ message }}
+            </div>
+        {% else %}
+            <div class="" style="margin-bottom: -1rem;">
+                {{ message }}
+            </div>
+        {% endif %}
     {% endfor %}
-    {% endif %}
+{% endif %}
 
     <button type="submit">Log In</button>
 
-   
+
 
     <a href="{% url 'signup' %}">Create a account</a>
+    <br>
+    <a style="color: rgb(172, 172, 247);" href="{% url 'forgot_password' %}">Forgot Password?</a>
   </form>
 </body>
 

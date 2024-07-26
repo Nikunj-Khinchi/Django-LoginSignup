@@ -23,5 +23,8 @@ urlpatterns = [
     path('login/', views.LoginPage, name='login'),
     path('home/', views.HomePage, name='home'),
     path('logout/', views.LogoutPage, name='logout'),
+    path('forgot_password/', views.ForgotPasswordPage, name='forgot_password'),
+    path('reset_password/<uidb64>/<token>/', views.ResetPasswordPage, name='reset_password'),
+
     
 ]

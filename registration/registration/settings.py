@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4$bgz#!9bkbf@ux%65f6fwau^1&_epz5h$8nret**%%n7*dv-$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0b0f-2409-40c1-103f-ecd6-a9e8-1b82-fc45-500f.ngrok-free.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -75,9 +75,17 @@ WSGI_APPLICATION = 'registration.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -122,3 +130,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ['https://0b0f-2409-40c1-103f-ecd6-a9e8-1b82-fc45-500f.ngrok-free.app']
